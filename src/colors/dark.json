@@ -9,7 +9,8 @@
     },
     "fg": {
         "base": "#f7f1ff",
-        "muted": "#b8b4be"
+        "muted": "#b8b4be",
+        "darkend": "#909090"
     },
     "base": {
         "black": "#050505",

@@ -10,6 +10,7 @@ export type Colors = {
     fg: {
         base: string,
         muted: string,
+        darkend: string
     },
     base: {
         black: string,

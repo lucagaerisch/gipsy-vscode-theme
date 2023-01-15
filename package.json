@@ -11,11 +11,17 @@
   "categories": [
     "Themes"
   ],
-  "activationEvents": [ ],
+  "activationEvents": [ "onStartupFinished" ],
   "main": "./out/gipsy.js",
   "contributes": {
     "commands": [ ],
-    "themes": [ ]
+    "themes": [
+      {
+        "label": "Gipsy Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/gipsy-dark.json"
+      }
+    ]
   },
   "extensionKind": [
     "ui",

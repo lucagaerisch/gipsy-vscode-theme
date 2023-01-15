@@ -1,0 +1,33 @@
+{
+    "accent": "#d4cc8f",
+    "transparent": "#00000000",
+    "bg": {
+        "primary": "#151515",
+        "secondary": "#191919",
+        "tertiary": "#404040",
+        "overlay": "#252525"
+    },
+    "fg": {
+        "base": "#f7f1ff",
+        "muted": "#b8b4be"
+    },
+    "base": {
+        "black": "#050505",
+        "red": "#fb1c5c",
+        "orange": "#fc6911",
+        "green": "#47c963",
+        "yellow": "#fbdb21",
+        "blue": "#2264de",
+        "magenta": "#cc00cc",
+        "purple": "#5e4fd5",
+        "cyan": "#22c6de",
+        "white": "#f7f1ff"
+    },
+    "git": {
+        "added": "#47c963",
+        "deleted": "#fb1c5c",
+        "modified": "#fc6911",
+        "untracked": "#b8b4be",
+        "ignored": "#525053"
+    }
+}

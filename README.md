@@ -11,11 +11,10 @@
 3. Click `Install`
 4. Select color theme
 
-
 ## Changelog
 
 [CHANGELOG](./CHANGELOG.md)
 
 ## Issues?
 
-For any issues, please use [GitHub issues]()
+For any issues or suggestions, please use [GitHub issues](https://github.com/lucagaerisch/gipsy-vscode-theme/issues) page.

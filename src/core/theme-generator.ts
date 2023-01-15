@@ -7,21 +7,27 @@ function getColors(theme: string): Colors {
         case 'gipsy-dark':
             return dark;
         default:
-            throw new Error('');
+            throw new Error(`Colors for "${theme}" not found!`);
     }
 }
 
-export function generateTheme(theme: string, name: string): VsTheme {
+export function generateTheme(theme: string, name: string, type?:string): VsTheme {
 
     const colors = getColors(theme);
 
     return {
         name: `${name}`,
         id: `${theme}`,
-        type: ``,
+        type: `${type}`,
         author: 'Luca Gärisch',
         colors: {
-            "activityBar.background": "#561712"
+            "activityBar.activeFocusBorder": colors.accent,
+            "activityBar.background": colors.bg.primary,
+            "activityBar.border": colors.bg.primary,
+            "activityBar.foreground": colors.accent,
+            "activityBar.inactiveForeground": colors.fg.muted,
+            "activityBarBadge.background": colors.accent,
+            "activityBarBadge.foreground": colors.base.black,
         }
     };
 }

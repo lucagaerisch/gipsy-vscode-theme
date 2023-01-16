@@ -11,6 +11,32 @@ function getColors(theme: string): Colors {
     }
 }
 
+function hexBrightness(hex: string, amount: number): string {
+    hex = hex.replace('#','');
+
+    if (hex.length === 6) {
+        const decimalColor = parseInt(hex, 16);
+        let r = (decimalColor >> 16) + amount;
+        r > 255 && (r = 255);
+        r < 0 && (r = 0);
+        let g = (decimalColor & 0x0000ff) + amount;
+        g > 255 && (g = 255);
+        g < 0 && (g = 0);
+        let b = ((decimalColor >> 8) & 0x00ff) + amount;
+        b > 255 && (b = 255);
+        b < 0 && (b = 0);
+        return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
+    } else {
+        return hex;
+    }
+}
+
+function addAlpha(hex: string, opacity: number): string {
+    // coerce values so ti is between 0 and 1.
+    var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
+    return hex + _opacity.toString(16).toUpperCase();
+}
+
 export function generateTheme(theme: string, name: string, type?:string): VsTheme {
 
     const colors = getColors(theme);
@@ -25,9 +51,36 @@ export function generateTheme(theme: string, name: string, type?:string): VsThem
             "activityBar.background": colors.bg.primary,
             "activityBar.border": colors.bg.primary,
             "activityBar.foreground": colors.accent,
-            "activityBar.inactiveForeground": colors.fg.muted,
+            "activityBar.inactiveForeground": colors.fg.darkend,
             "activityBarBadge.background": colors.accent,
             "activityBarBadge.foreground": colors.base.black,
+
+            "button.background": colors.bg.tertiary,
+            "button.foreground": colors.fg.base,
+            //"button.hoverBackground": ,
+            "button.secondaryBackground": colors.bg.tertiary,
+            "button.secondaryForeground": colors.fg.base,
+            //"button.secondaryHoverBackground": ,
+            "button.separator": colors.bg.overlay,
+
+            "charts.blue": colors.base.blue,
+            "charts.foreground": colors.fg.base,
+            "charts.green": colors.base.green,
+            "charts.lines": colors.fg.muted,
+            "charts.orange": colors.base.orange,
+            "charts.purple": colors.base.purple,
+            "charts.red": colors.base.red,
+            "charts.yellow": colors.base.yellow,
+
+            "checkbox.background": colors.bg.secondary,
+            "checkbox.border": colors.bg.overlay,
+            "checkbox.foreground": colors.base.green,
+
+            "commandCenter.activeBackground": colors.bg.overlay,
+            "commandCenter.activeForeground": colors.fg.muted,
+            "commandCenter.background": colors.bg.primary,
+            "commandCenter.border": colors.bg.overlay,
+            //"commandCenter.foreground": ,
 
             "debugConsole.errorForeground": colors.base.red,
             "debugConsole.infoForeground": colors.base.cyan,
@@ -119,6 +172,24 @@ export function generateTheme(theme: string, name: string, type?:string): VsThem
             "gitDecoration.stageModifiedResourceForeground": colors.git.modified,
             "gitDecoration.untrackedResourceForeground": colors.git.untracked,
 
+            "list.activeSelectionBackground": addAlpha(colors.accent, 0.5),
+            //"list.activeSelectionForeground": "#fce566",
+            //"list.dropBackground": "#191919bf",
+            "list.errorForeground": colors.base.red,
+            "list.focusBackground": colors.bg.overlay,
+            "list.focusForeground": colors.fg.base,
+            "list.highlightForeground": colors.fg.base,
+            "list.hoverBackground": addAlpha(colors.base.black, 0.3),
+            "list.hoverForeground": colors.fg.base,
+            "list.inactiveFocusBackground": colors.bg.overlay,
+            //"list.inactiveSelectionBackground": "#bab6c00c",
+            //"list.inactiveSelectionForeground": ,
+            "list.invalidItemForeground": colors.base.red,
+            "list.warningForeground": colors.base.orange,
+            "listFilterWidget.background": colors.bg.overlay,
+            "listFilterWidget.noMatchesOutline": colors.base.red,
+            "listFilterWidget.outline": colors.bg.overlay,
+
             "notificationCenter.border": colors.transparent,
             "notificationCenterHeader.background": colors.bg.overlay,
             "notificationCenterHeader.foreground": colors.fg.muted,
@@ -138,9 +209,14 @@ export function generateTheme(theme: string, name: string, type?:string): VsThem
             "panelTitle.activeForeground": colors.accent,
             "panelTitle.inactiveForeground": colors.fg.darkend,
 
+            "pickerGroup.border": colors.bg.overlay,
+            "pickerGroup.foreground": colors.accent,
+
             "problemsErrorIcon.foreground": colors.base.red,
             "problemsInfoIcon.foreground": colors.base.blue,
             "problemsWarningIcon.foreground": colors.base.orange,
+
+            "progressBar.background": colors.bg.tertiary,
 
             "settings.checkboxBackground": colors.bg.secondary,
             "settings.checkboxBorder": colors.bg.overlay,
@@ -208,6 +284,31 @@ export function generateTheme(theme: string, name: string, type?:string): VsThem
             "tab.unfocusedHoverForeground": colors.fg.muted,
             "tab.unfocusedInactiveForeground": colors.fg.darkend,
             "tab.unfocusedInactiveModifiedBorder": colors.bg.tertiary,
+
+            "terminal.ansiBlack": colors.base.black,
+            "terminal.ansiBlue": colors.base.blue,
+            "terminal.ansiBrightBlack": hexBrightness(colors.base.black, 100),
+            "terminal.ansiBrightBlue": hexBrightness(colors.base.blue, 100),
+            "terminal.ansiBrightCyan": hexBrightness(colors.base.cyan, 100),
+            "terminal.ansiBrightGreen": hexBrightness(colors.base.green, 100),
+            "terminal.ansiBrightMagenta": hexBrightness(colors.base.magenta, 100),
+            "terminal.ansiBrightRed": hexBrightness(colors.base.red, 100),
+            "terminal.ansiBrightWhite": hexBrightness(colors.base.white, 100),
+            "terminal.ansiBrightYellow": hexBrightness(colors.base.yellow, 100),
+            "terminal.ansiCyan": colors.base.cyan,
+            "terminal.ansiGreen": colors.base.green,
+            "terminal.ansiMagenta": colors.base.magenta,
+            "terminal.ansiRed": colors.base.red,
+            "terminal.ansiWhite": colors.base.white,
+            "terminal.ansiYellow": colors.base.yellow,
+            "terminal.background": colors.bg.primary,
+            "terminal.foreground": colors.fg.base,
+            //"terminal.selectionBackground": ,
+            "terminalCommandDecoration.defaultBackground": colors.base.white,
+            "terminalCommandDecoration.errorBackground": colors.base.red,
+            "terminalCommandDecoration.successBackground": colors.base.green,
+            "terminalCursor.background": colors.transparent,
+            "terminalCursor.foreground": colors.fg.base,
 
             "textLink.activeForeground": colors.fg.base,
             "textLink.foreground": colors.accent,

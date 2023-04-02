@@ -32,7 +32,7 @@ function hexBrightness(hex: string, amount: number): string {
 }
 
 function addAlpha(hex: string, opacity: number): string {
-    // coerce values so ti is between 0 and 1.
+    // opacity value between 0 and 1.
     var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
     return hex + _opacity.toString(16).toUpperCase();
 }
@@ -149,6 +149,42 @@ export function generateTheme(theme: string, name: string, type?:string): VsThem
             "editorInfo.foreground": colors.base.cyan,
             "editorLightBulb.foreground": colors.base.yellow,
             "editorLightBulbAutoFix.foreground": colors.base.green,
+            "editorLineNumber.activeForeground": colors.fg.muted,
+            //"editorLineNumber.foreground": "#525053",
+            "editorLink.activeForeground": colors.base.cyan,
+            //"editorMarkerNavigation.background": "#363537",
+            "editorMarkerNavigationError.background": colors.base.red,
+            "editorMarkerNavigationInfo.background": colors.base.cyan,
+            "editorMarkerNavigationWarning.background": colors.base.orange,
+            "editorOverviewRuler.addedForeground": colors.base.green,
+            "editorOverviewRuler.border": colors.bg.overlay,
+            //"editorOverviewRuler.currentContentForeground": "#363537",
+            "editorOverviewRuler.deletedForeground": colors.base.red,
+            "editorOverviewRuler.errorForeground": colors.base.red,
+            //"editorOverviewRuler.findMatchForeground": "#f7f1ff26",
+            //"editorOverviewRuler.incomingContentForeground": "#363537",
+            "editorOverviewRuler.infoForeground": colors.base.cyan,
+            "editorOverviewRuler.modifiedForeground": colors.base.orange,
+            //"editorOverviewRuler.rangeHighlightForeground": "#f7f1ff26",
+            //"editorOverviewRuler.selectionHighlightForeground": "#f7f1ff26",
+            "editorOverviewRuler.warningForeground": colors.base.orange,
+            //"editorOverviewRuler.wordHighlightForeground": "#f7f1ff26",
+            //"editorOverviewRuler.wordHighlightStrongForeground": "#f7f1ff26",
+            "editorPane.background": colors.bg.overlay,
+            //"editorRuler.foreground": "#525053",
+            //"editorSuggestWidget.background": "#363537",
+            //"editorSuggestWidget.border": "#363537",
+            "editorSuggestWidget.foreground": colors.fg.muted,
+            "editorSuggestWidget.highlightForeground": colors.fg.base,
+            //"editorSuggestWidget.selectedBackground": "#69676c",
+            //"editorUnnecessaryCode.opacity": "#000000a5",
+            "editorWarning.background": colors.transparent,
+            "editorWarning.border": colors.transparent,
+            "editorWarning.foreground": colors.base.orange,
+            //"editorWhitespace.foreground": "#525053",
+            //"editorWidget.background": "#363537",
+            //"editorWidget.border": "#363537",
+            "errorForeground": colors.base.red,
 
             "extensionBadge.remoteForeground": colors.accent,
             "extensionBadge.remoteBackground": colors.bg.primary,
@@ -326,6 +362,37 @@ export function generateTheme(theme: string, name: string, type?:string): VsThem
             "welcomePage.progress.background": colors.bg.tertiary,
             "welcomePage.progress.foreground": colors.accent,
             //"welcomePage.titleBackground": ,
-        }
+        },
+        "tokenColors": [
+            // Comments
+            {
+                "scope": [
+                    "comment keyword",
+                    "comment markup.underline.link",
+                    "comment string",
+                    "comment punctuation.definition",
+                    "comment punctuation",
+                    "comment text"
+                ],
+                "settings": {
+                    "foreground": colors.fg.darkend
+                }
+            },
+
+            // Markdown
+            {
+                "scope": "punctuation.definition.list.begin.markdown",
+                "settings": {
+                    "foreground": colors.base.orange
+                }
+            },
+            {
+                "scope": "punctuation.definition.heading.markdown",
+                "settings": {
+                    "foreground": colors.base.orange,
+                    "fontStyle": "bold"
+                }
+            },
+        ]
     };
 }

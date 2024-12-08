@@ -1,15 +1,24 @@
-# GIPSY THEME
+# GIPSY THEMES
+
+Long story short... I just wanted to create a theme for myself and thought maybe some people out there would also like it. Have fun with it! If you like it, I would appreciate a good rating :)
 
 ## Theme Screenshots
 
-<br>
+Screenshots will be here soon...
 
-## Installation
+## Getting started
 
-1. Open the extensions tab
-2. Search for `Gipsy`
-3. Click `Install`
-4. Select color theme
+Just download this theme and enjoy.
+
+### Activate Theme
+
+Launch Quick-Open:
+
+- Linux `Ctrl+p`
+- Windows `Ctrl+p`
+- MacOs `⌘P`
+
+Type `theme` or `color`, choose `Preferences: Color Theme` and select a theme you like.
 
 ## Changelog
 

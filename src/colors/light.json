@@ -1,16 +1,16 @@
 {
-    "accent": "#d4cc8f",
+    "accent": "#2b3370",
     "transparent": "#00000000",
     "bg": {
-        "primary": "#151515",
-        "secondary": "#191919",
-        "tertiary": "#404040",
-        "overlay": "#252525"
+        "primary": "#",
+        "secondary": "#",
+        "tertiary": "#",
+        "overlay": "#"
     },
     "fg": {
-        "base": "#f7f1ff",
-        "muted": "#b8b4be",
-        "darkend": "#909090"
+        "base": "#",
+        "muted": "#",
+        "darkend": "#"
     },
     "base": {
         "black": "#050505",

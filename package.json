@@ -1,9 +1,9 @@
 {
   "name": "gipsy-vscode-theme",
-  "displayName": "Gipsy",
-  "description": "VS-Code theme!",
+  "displayName": "Gipsy Themes",
+  "description": "Gipsy VS-Code theme!",
   "publisher": "lucagaerisch",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/lucagaerisch/gipsy-vscode-theme"
@@ -25,6 +25,11 @@
         "label": "Gipsy Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/gipsy-dark.json"
+      },
+      {
+        "label": "Gipsy Light",
+        "uiTheme": "vs",
+        "path": "./themes/gipsy-light.json"
       }
     ]
   },
@@ -56,6 +61,7 @@
     "eslint": "^9.16.0",
     "glob": "^8.1.0",
     "mocha": "^10.8.2",
+    "prettier": "^3.4.2",
     "typescript": "^4.9.5"
   }
 }
